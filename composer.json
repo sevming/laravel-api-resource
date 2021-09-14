@@ -1,0 +1,21 @@
+{
+    "name": "sevming/laravel-api-resource",
+    "description": "Laravel API Resource",
+    "homepage": "https://github.com/sevming/laravel-api-resource",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sevming",
+            "email": "sevming@foxmail.com"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sevming\\LaravelApiResource\\": "src"
+        }
+    }
+}

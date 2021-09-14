@@ -29,17 +29,17 @@ $ composer require sevming/laravel-api-resource -vvv
     
     class MockUserResource extends BaseResource
     {
-        public const TYPE_LIST = 'list';
+        public const SCENE_LIST = 'list';
     
-        public const TYPE_INFO = 'info';
+        public const SCENE_INFO = 'info';
     
         public function toArray($request)
         {
-            switch ($this->type) {
-                case self::TYPE_LIST:
+            switch ($this->scene) {
+                case self::SCENE_LIST:
                     $this->show(['id', 'account']);
                     break;
-                case self::TYPE_INFO:
+                case self::SCENE_INFO:
                     $this->hide(['password']);
                     break;
                 default:
@@ -71,9 +71,9 @@ $ composer require sevming/laravel-api-resource -vvv
     return MockUserResource::make($user);
     return MockUserResource::make($user)->show(['id']);
     return MockUserResource::make($user)->hide(['id']);
-    return MockUserResource::make($user)->type(MockUserResource::TYPE_LIST);
+    return MockUserResource::make($user)->scene(MockUserResource::SCENE_LIST);
     return MockUserResource::make($user)
-        ->type(MockUserResource::TYPE_LIST)
+        ->scene(MockUserResource::SCENE_LIST)
         ->show(['created_at'])
         ->additional([
             'additional' => 'additional resource'
@@ -88,9 +88,9 @@ $ composer require sevming/laravel-api-resource -vvv
     return MockUserResource::collection($list);
     return MockUserResource::collection($list)->show(['id']);
     return MockUserResource::collection($list)->hide(['id']);
-    return MockUserResource::collection($list)->type(MockUserResource::TYPE_LIST);
+    return MockUserResource::collection($list)->scene(MockUserResource::SCENE_LIST);
     return MockUserResource::collection($list)
-        ->type(MockUserResource::TYPE_LIST)
+        ->scene(MockUserResource::SCENE_LIST)
         ->show(['created_at'])
         ->additional([
             'additional' => 'additional collection'
